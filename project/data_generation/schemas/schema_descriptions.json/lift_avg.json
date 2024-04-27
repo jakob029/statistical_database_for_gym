@@ -1,0 +1,15 @@
+{
+    "source": 
+        ["https://strengthlevel.com/"],
+    "description":
+    {
+        "<age>":
+        {
+            "<lift>":
+            {
+                "avg": "lift average",
+                "sigma": "Approximatly one standard deviation"
+            }
+        }
+    }
+}

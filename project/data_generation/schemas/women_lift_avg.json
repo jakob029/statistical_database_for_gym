@@ -1,7 +1,49 @@
 {
-"benchpress":
-    []
-
-
-
+"18": {
+    "benchpress":
+    {
+        "avg": "",
+        "sigma": ""
+    },
+    "squat":
+    {
+        "avg": "",
+        "sigma": ""
+    },
+    "deadlift":
+    {
+        "avg": "",
+        "sigma": ""
+    },
+    "shoulder press":
+    {
+        "avg": "",
+        "sigma": ""
+    },
+    "dumbbell bench press":
+    {
+        "avg": "",
+        "sigma": ""
+    },
+    "Pull ups":
+    {
+        "avg": "",
+        "sigma": ""
+    },
+    "Dumbbell Curl":
+    {
+        "avg": "",
+        "sigma": ""
+    },
+    "PushUps":
+    {
+        "avg": "",
+        "sigma": ""
+    },
+    "Bent over Row":
+    {
+        "avg": "",
+        "sigma": ""
+    }
+}
 }
