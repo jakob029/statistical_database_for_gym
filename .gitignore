@@ -8,4 +8,6 @@ env/
 .idea/
 .vscode/
 
+.ruff_cache/
+
 *.log
