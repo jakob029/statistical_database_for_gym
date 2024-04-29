@@ -11,6 +11,3 @@
 |   |   |   |   |   |
 |   |   |   |   |   |
 |   |   |   |   |   |
-
-### Rules 
- - Please do not commit any code that is written/partually written by ChatGPT or any other LLM 
