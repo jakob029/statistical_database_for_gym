@@ -41,4 +41,4 @@
 
 
 ### 1rp max calculation estimate
-<percentage of max = 100 * e^(-0.023 * reps)>
+<percentage of max = 100 * e^(-0.023 * (reps-1))>
