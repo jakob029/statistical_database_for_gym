@@ -2,11 +2,11 @@
 
 
 #### Member table
-|MemberID|Name|Date Of Birth|Sign-up date|
-|---|---|---|---|
-|   |   |   |   |
-|   |   |   |   |
-|   |   |   |   |
+|MemberID|Member name|Date Of Birth|Sign-up date|Weight|Height|
+|---|---|---|---|---|---|
+|   |   |   |   |   |   |
+|   |   |   |   |   |   |
+|   |   |   |   |   |   |
 
 #### Machine table
 |MachineID|Machine name|Installment Date|Total number of reps|Highscore|
@@ -14,13 +14,6 @@
 |   |   |   |   |   |
 |   |   |   |   |   |
 |   |   |   |   |   |
-
-#### High score table  (This might be removed in final version)
-|MachineID|MemberID|1rp max indicator|
-|---|---|---|
-|   |   |   |
-|   |   |   |
-|   |   |   |
 
 #### Exercise score table
 |Exercise|MemberID|Highscore|
