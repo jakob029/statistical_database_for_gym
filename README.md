@@ -2,11 +2,11 @@
 
 
 #### Member table
-|MemberID|Name|Installment Date|Date Of Birth|Sign-up date|
-|---|---|---|---|---|
-|   |   |   |   |   |
-|   |   |   |   |   |
-|   |   |   |   |   |
+|MemberID|Name|Date Of Birth|Sign-up date|
+|---|---|---|---|
+|   |   |   |   |
+|   |   |   |   |
+|   |   |   |   |
 
 #### Machine table
 |MachineID|Machine name|Installment Date|Total number of reps|Highscore|
