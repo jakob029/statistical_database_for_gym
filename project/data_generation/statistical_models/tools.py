@@ -6,30 +6,21 @@ from scipy.optimize import curve_fit
 
 
 def sextic_equation(
-    x: int, a: int, b: int, c: int, d: int, e: int, f: int, g: int
+    x: int, a: int, b: int, c: int, d: int
 ) -> int:
     """Sixth degree function calculator."""
-    return a * x**6 + b * x**5 + c * x**4 + d * x**3 + e * x**2 + f * x + g
+    return a * x**3 + b * x**2 + c * x + d
 
-
-def fit_function_to_cordinates(cordinate_values: int):
-    """Generate a mathimatical function based on some input cordinations."""
+def fit_function_to_cordinates(cordinate_values: int, mean_or_sigma: int = 0) -> tuple:
+    """Generate a mathimatical function based on some input cordinations.
+    Args;
+        cordinate_values: List of tuples with cordinate values.
+        mean_or_sigma: Give 0 for mean and 1 for standard deviation.
+    """
     x_values = np.array([value[0] for value in cordinate_values])
-    y_values = np.array([value[1] for value in cordinate_values])
+    y_values = np.array([value[1 + mean_or_sigma] for value in cordinate_values])
 
     params = curve_fit(sextic_equation, x_values, y_values)
-    [a, b, c, d, e, f, g] = params[0]
+    [a, b, c, d] = params[0]
 
-    return a, b, c, d, e, f, g
-
-
-"""Showcase of how to use model below.
-
-import purpose_built_models.source_training_data as data
-
-training_data = data.get_structured_training_data("bench-press")
-average_training_bench = data.get_average_per_class("Men age", training_data)
-generated_function = fit_function_to_cordinates(average_training_bench)
-
-average lift = sextic_equation(<age or bodyweight>, *generated_function)
-"""
+    return a, b, c, d
