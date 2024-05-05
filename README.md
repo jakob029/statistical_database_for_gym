@@ -42,3 +42,7 @@
 
 ### 1rp max calculation estimate
 <percentage of max = 100 * e^(-0.023 * (reps-1))>
+
+### Protental Architecture changes
+
+ - The tables shall be normalized in line with 3NF.
