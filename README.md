@@ -32,10 +32,11 @@
 |   |   |   |   |
 |   |   |   |   |
 
-
-### 1rp max calculation estimate
-<percentage of max = 100 * e^(-0.023 * (reps-1))>
-
 ### Protental Architecture changes
 
  - The tables shall be normalized in line with 3NF.
+
+
+### 1rp max calculation estimate
+ - <percentage of max = 100 * e^(-0.023 * (reps-1))>
+ - Estimates per median weight and standard deviation can be calculated in the python data generation code.
