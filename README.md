@@ -2,21 +2,21 @@
 
 
 #### Member table
-|MemberID|Member name|Date Of Birth|Sign-up date|Weight|Height|
+|MemberID (PK)|Member name|Date Of Birth|Sign-up date|Weight|Height|
 |---|---|---|---|---|---|
 |   |   |   |   |   |   |
 |   |   |   |   |   |   |
 |   |   |   |   |   |   |
 
 #### Machine table
-|MachineID|Machine name|Installment Date|Total number of reps|Highscore|
+|MachineID (PK)|Machine name|Installment Date|Total number of reps|Highscore|
 |---|---|---|---|---|
 |   |   |   |   |   |
 |   |   |   |   |   |
 |   |   |   |   |   |
 
 #### Exercise score table
-|Exercise|MemberID|Highscore|
+|Exercise|MemberID (FK)|Highscore|
 |---|---|---|
 |Running 5k|   |   |
 |Running 10k|   |   |
@@ -26,7 +26,7 @@
 
 
 #### Machine stats table
-|MachineID|MemberID|Total rep count|1rp max indicator|
+|MachineID (FK)|MemberID (FK)|Total rep count|1rp max indicator|
 |---|---|---|---|
 |   |   |   |   |
 |   |   |   |   |
