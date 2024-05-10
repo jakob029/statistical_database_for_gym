@@ -3,12 +3,14 @@ import tools
 import json
 
 
-def generate_math_functions() -> None:
+def generate_math_functions(exercises: list = None) -> None:
     """Generate a file that contains all variables that create the polynomial function that
     defines a specific case."""
     json_dict = {}
-    exercises = ['bench-press', 'squat', 'deadlift']
+    if not exercises:
+        exercises = ['bench-press', 'squat', 'deadlift']
     table_types = ["Men bodyweight", "Men age", "Female bodyweight", "Female age"]
+
     for exercise in exercises:
         training_data = data.get_structured_training_data(exercise)
         json_dict[exercise] = {}
@@ -20,7 +22,7 @@ def generate_math_functions() -> None:
 
             json_dict[exercise][table_type] = {"mean": generated_mean_function, "sigma": generated_sigma_function}
 
-    with open("project/data_generation/schemas/weight_functions.json", 'w', encoding='utf-8') as file:
+    with open("project/data_generation/schemas/exercise_weight_functions.json", 'w', encoding='utf-8') as file:
         json.dump(json_dict, file, indent=4)
 
 
