@@ -1,0 +1,16 @@
+{
+    "sources": [
+        "https://www.scb.se/contentassets/9608d268fa9c40178e30131f03776b76/medelvarden_av_langd_vikt_och_bmi_1988_89-2008_2011.xls",
+        "https://www.scb.se/contentassets/9608d268fa9c40178e30131f03776b76/percentiler_av_langd_vikt_bmi_2010-2011.xls"
+    ],
+    "structure": {
+        "Men weight": {
+            "mean": ["Mean length third degree function constants"],
+            "sigma": ["Standard deviation function constants"]
+        },
+        "Woman weight": {
+            "mean": ["Mean weight degree function constants"],
+            "sigma": ["Standard deviation function constants"]
+        }
+    }
+}
