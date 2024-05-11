@@ -5,17 +5,16 @@ import numpy as np
 from scipy.optimize import curve_fit
 
 
-def third_degree_function(
-    x: int, a: int, b: int, c: int, d: int
-) -> int:
+def third_degree_function(x: int, a: int, b: int, c: int, d: int) -> int:
     """Sixth degree function calculator."""
     return a * x**3 + b * x**2 + c * x + d
+
 
 def polynomial_function(x: int, *degree_constants: list) -> float:
     """Get a value based on some mathematical polynomial function and an x value.
     Args:
         x: The x value for the y value wanted.
-        degree_constants: Each constant for the polynomial function in 
+        degree_constants: Each constant for the polynomial function in
           descending order (based on x exponent).
     Returns:
         Curve y value.
@@ -24,9 +23,10 @@ def polynomial_function(x: int, *degree_constants: list) -> float:
     degree_constants.reverse()
     value = 0
     for i, constant in enumerate(degree_constants[1:]):
-        value += constant * x ** (i+1)
+        value += constant * x ** (i + 1)
     value += degree_constants[0]
     return value
+
 
 def fit_function_to_cordinates(cordinate_values: int, mean_or_sigma: int = 0) -> tuple:
     """Generate a mathematical function based on some input coordinates.
@@ -41,6 +41,7 @@ def fit_function_to_cordinates(cordinate_values: int, mean_or_sigma: int = 0) ->
     [a, b, c, d] = params[0]
 
     return a, b, c, d
+
 
 def generate_standardized_value(mean: float, sigma: float) -> float:
     """Generate a randomized value where the probability follows a standard deviation curve.

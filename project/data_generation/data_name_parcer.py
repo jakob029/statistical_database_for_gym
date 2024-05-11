@@ -6,7 +6,7 @@ import yaml
 
 
 class DataNameParcer:
-    """File for parcing Swedish SCB name statistics."""
+    """File for pacing Swedish SCB name statistics."""
 
     NAME_STAT_LIST: list
 
@@ -35,7 +35,7 @@ class DataNameParcer:
         return tuple(self.NAME_STAT_LIST)
 
     def generate_yaml_file(self, file_name: str):
-        """Generate a YAML file based don the statistics.
+        """Generate a YAML file based on the statistics.
         Args:
             file_name: Path to file.
         """
