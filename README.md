@@ -42,3 +42,4 @@
  - Estimates per median weight and standard deviation can be calculated in the python data generation code.
 
 ### Instructions
+    To generate a member, initiate a GymMember instance from project/data_generation/main.py
