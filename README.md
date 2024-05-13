@@ -2,11 +2,11 @@
 
 
 #### Member table
-|MemberID (PK)|Member name|Date Of Birth|Sign-up date|Weight|Height|
-|---|---|---|---|---|---|
-|   |   |   |   |   |   |
-|   |   |   |   |   |   |
-|   |   |   |   |   |   |
+|MemberID (PK)|Member Fname|Member Lname|Date Of Birth|Sign-up date|Weight|Height|
+|---|---|---|---|---|---|---|
+|   |   |   |   |   |   |   |
+|   |   |   |   |   |   |   |
+|   |   |   |   |   |   |   |
 
 #### Machine table
 |MachineID (PK)|Machine name|Installment Date|Total number of reps|Highscore|
