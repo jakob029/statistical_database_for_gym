@@ -44,3 +44,7 @@ using_db = """USE statistical_database_for_gym;"""
 insert_member = """INSERT INTO Member_table(Member_Fname,Member_Lname,Date_Of_birth,Weight,Height)
 VALUES
 """
+
+insert_exercise_score = """INSERT INTO Exercise_score_table(Exercise, MemberID, Highscore)
+VALUES
+"""
