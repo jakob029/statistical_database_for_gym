@@ -3,8 +3,8 @@ assignment all code is developed by jakob029 & FilipDar."""
 
 import random
 import json
-from data_name_parcer import DataNameParcer
-from statistical_models import tools
+from data_generation.data_name_parcer import DataNameParcer
+from data_generation.statistical_models import tools
 
 
 def generate_name_from_parcer(parced_data_object: DataNameParcer):

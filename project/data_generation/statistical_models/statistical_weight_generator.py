@@ -2,8 +2,8 @@
 assignment all code is developed by jakob029 & FilipDar."""
 
 import json
-import purpose_built_models.source_training_data as data
-import tools
+import data_generation.statistical_models.purpose_built_models.source_training_data as data
+from data_generation.statistical_models import tools
 
 
 def generate_math_functions(exercises: list = None) -> None:

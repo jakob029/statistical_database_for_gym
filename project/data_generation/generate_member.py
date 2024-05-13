@@ -2,14 +2,15 @@
 assignment all code is developed by jakob029 & FilipDar."""
 
 import random
-import exceptions
-from data_name_parcer import DataNameParcer
-from generator_functions import (
+from datetime import datetime, date
+from data_generation import exceptions
+from data_generation.data_name_parcer import DataNameParcer
+from data_generation.generator_functions import (
     generate_name_from_parcer,
     generate_statistics_based_value,
 )
-import paths
-from statistical_models import tools
+from data_generation import paths
+from data_generation.statistical_models import tools
 
 PARCEDL = DataNameParcer(paths.NAME_LAST)
 PARCEDM = DataNameParcer(paths.NAME_MAN)
@@ -22,13 +23,13 @@ class GymMember:
     member_id: int
 
     gender: int
-    age: int
+    birthday: str
     first_name: str
     last_name: str
     date_of_birth: str
 
     weight: int
-    length: int
+    height: int
 
     exercises: tuple = {}
 
@@ -37,7 +38,7 @@ class GymMember:
         gender: int = None,
         fist_name: str = None,
         last_name: str = None,
-        age: int = None,
+        birthday: str = None,
     ):
         """Generate a new Gym member, if custom name or gener is wanted, input args.
         Args:
@@ -49,8 +50,8 @@ class GymMember:
         if not gender:
             self.gender = random.randint(0, 1)
 
-        if not age:
-            self.age = random.randint(16, 90)
+        if not birthday:
+            self.generate_data_of_birth()
 
         if fist_name and last_name:
             return
@@ -83,7 +84,7 @@ class GymMember:
     def _setup_weight(self):
         section_tuple = ("Men weight", "Woman weight")
         mean, sigma = generate_statistics_based_value(
-            self.age, paths.WEIGHT_FUNCTIONS, [section_tuple[self.gender]]
+            self.get_age(), paths.WEIGHT_FUNCTIONS, [section_tuple[self.gender]]
         )
 
         self.weight = tools.generate_standardized_value(mean, sigma)
@@ -91,22 +92,22 @@ class GymMember:
     def _setup_length(self):
         section_tuple = ("Men length", "Woman length")
         mean, sigma = generate_statistics_based_value(
-            self.age, paths.LENGTH_FUNCTIONS, [section_tuple[self.gender]]
+            self.get_age(), paths.LENGTH_FUNCTIONS, [section_tuple[self.gender]]
         )
 
-        self.length = tools.generate_standardized_value(mean, sigma)
+        self.height = tools.generate_standardized_value(mean, sigma)
 
     def _setup_lifts(self, lift, strength_sigma_age, strength_sigma_weight):
         bw_section_tuple = ("Men bodyweight", "Female bodyweight")
         age_section_tuple = ("Men age", "Female age")
 
         bw_mean, bw_sigma = generate_statistics_based_value(
-            self.age,
+            self.get_age(),
             paths.EXERCISE_WEIGHT_FUNCTIONS,
             [lift, bw_section_tuple[self.gender]],
         )
         age_mean, age_sigma = generate_statistics_based_value(
-            self.age,
+            self.get_age(),
             paths.EXERCISE_WEIGHT_FUNCTIONS,
             [lift, age_section_tuple[self.gender]],
         )
@@ -119,8 +120,20 @@ class GymMember:
 
         self.exercises[lift] = (bw_value + age_value) / 2
 
-    def get_structured_output(self) -> None:
+    def get_structured_output(self) -> str:
         """Generate a output print with values to feed the database."""
-        print(
-            f"{self.first_name},{self.last_name},{self.age},{self.length},{self.weight}"
-        )
+        return f"'{self.first_name}', '{self.last_name}', '{self.birthday}', {int(round(self.weight))}, {int(round(self.height))}"
+
+    def generate_data_of_birth(self):
+        days_in_month = [31,28,31,30,31,30,31,31,30,31,30,31]
+        this_year = datetime.now().year
+        birth_year = random.randint(this_year-90, this_year-16)
+        birth_month = random.randint(1, 12)
+        birth_day = random.randint(1, days_in_month[birth_month-1])
+
+        self.birthday = f'{birth_year}-{birth_month}-{birth_day}'
+
+    def get_age(self) -> int:
+        today = date.today()
+        born_day = datetime.strptime(self.birthday, '%Y-%m-%d')
+        return today.year - born_day.year - ((today.month, today.day) < (born_day.month, born_day.day))
