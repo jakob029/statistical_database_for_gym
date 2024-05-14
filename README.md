@@ -56,6 +56,8 @@
             $sudo mysql
 
     Then create a user by doing:
+        $sudo service mysql start
+        $mysql -u root mysql
         CREATE USER '<SET_USERNAME>'@'localhost' IDENTIFIED BY '<PASSWORD>';
     Grant permissions to user:
         GRANT ALL PRIVILEGES ON *.* TO '<USERNAME>'@'localhost';

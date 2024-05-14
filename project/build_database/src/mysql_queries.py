@@ -48,3 +48,7 @@ VALUES
 insert_exercise_score = """INSERT INTO Exercise_score_table(Exercise, MemberID, Highscore)
 VALUES
 """
+
+insert_machine = """INSERT INTO Machine_table(Machine_name, Installment_date, Total_number_of_reps, Highscore)
+VALUES
+"""

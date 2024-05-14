@@ -3,13 +3,13 @@ assignment all code is developed by jakob029 & FilipDar."""
 
 import random
 from datetime import datetime, date
-from data_generation import exceptions
-from data_generation.data_name_parcer import DataNameParcer
-from data_generation.generator_functions import (
+from data_generation.src import exceptions
+from data_generation.src.data_name_parcer import DataNameParcer
+from data_generation.src.generator_functions import (
     generate_name_from_parcer,
     generate_statistics_based_value,
 )
-from data_generation import paths
+from data_generation.src import paths
 from data_generation.statistical_models import tools
 
 PARCEDL = DataNameParcer(paths.NAME_LAST)
