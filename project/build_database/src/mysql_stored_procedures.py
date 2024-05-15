@@ -27,16 +27,3 @@ END //
 
 DELIMITER ;
 """
-
-
-"""
-CREATE PROCEDURE InsertSet (IN MachineID int, IN MemberID int, IN Reps INT, IN Weight INT)
-BEGIN
-    DECLARE find_row INT;
-    Select count(*) into find_row from Machine_stats_table where
-    MachineID = MachineID and MemberID = MemberID;
-
-    INSERT INTO Machine_stats_table(MachineID, MemberID, Total_rep_count, Highscore)
-    VALUES (MachineID, MemberID, Reps, Weight);
-END //
-"""
