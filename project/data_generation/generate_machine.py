@@ -12,7 +12,7 @@ def generate_machine(gym_open_years: int) -> tuple:
         machine_names = file.read().splitlines()
         return random.choice(machine_names), generate_date(gym_open_years, 0)
 
-def get_structured_machine_output(gym_open_years: int = 10) -> str:
+def get_structured_machine_output(GymID: int, gym_open_years: int = 10) -> str:
     """Generate structured insert values for a gym_machine.
     Args:
         gym_open_years: Number of years the gym has been open.
@@ -21,4 +21,4 @@ def get_structured_machine_output(gym_open_years: int = 10) -> str:
           Installment_date, Total_number_of_reps, Highscore)"""
 
     m_name, ins_date = generate_machine(gym_open_years)
-    return f"'{m_name}', '{ins_date}', {random.randint(5000,100_000)}, {0}"
+    return f"{GymID}, '{m_name}', '{ins_date}', {random.randint(0,10)}"

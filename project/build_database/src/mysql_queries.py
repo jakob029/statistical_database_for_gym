@@ -11,13 +11,24 @@ build_query = """
     Height INT
     ) AUTO_INCREMENT = 1000;
 
+    
+    CREATE TABLE Gym
+    (
+    GymID INT PRIMARY KEY AUTO_INCREMENT,
+    GymName VARCHAR(255) NOT NULL
+    );
+
+    INSERT INTO Gym(GymName)
+    VALUES ('Karlskrona');
+
     CREATE TABLE Machine_table
     (
     MachineID INT PRIMARY KEY AUTO_INCREMENT,
+    GymID INT NOT NULL,
+    foreign key (GymID) references Gym(GymID),
     Machine_name VARCHAR(255) NOT NULL,
     Installment_date DATE NOT NULL,
-    Total_number_of_reps INT,
-    Highscore INT
+    Wear_tear_index INT
     );
 
     CREATE TABLE Exercise_score_table
@@ -39,6 +50,9 @@ build_query = """
     );
 """
 
+### THE HIGHTSCORE IN MACHINE TABLE SHOULD INSTED REFER TO A FUNCTION FROM Machine_stats_table
+### SAME WITH TOTAL NUM OF REPS
+
 using_db = """USE statistical_database_for_gym;"""
 
 insert_member = """INSERT INTO Member_table(Member_Fname,Member_Lname,Date_Of_birth,Weight,Height)
@@ -49,6 +63,6 @@ insert_exercise_score = """INSERT INTO Exercise_score_table(Exercise, MemberID, 
 VALUES
 """
 
-insert_machine = """INSERT INTO Machine_table(Machine_name, Installment_date, Total_number_of_reps, Highscore)
+insert_machine = """INSERT INTO Machine_table(GymID ,Machine_name, Installment_date, Wear_tear_index)
 VALUES
 """

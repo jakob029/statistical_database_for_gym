@@ -63,7 +63,7 @@ class DataBaseHandler:
             self._initiate_database()
 
             machine_query = (
-                f"{q.insert_machine}({machine_generator()}); COMMIT;"
+                f"{q.insert_machine}({machine_generator(1)}); COMMIT;"
             )
             time.sleep(0.05)
             self.CURSOR.execute(q.using_db)
