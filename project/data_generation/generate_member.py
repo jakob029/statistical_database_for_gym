@@ -74,8 +74,8 @@ class GymMember:
         self._setup_weight()
         self._setup_length()
 
-        strength_standard_deviation_age = tools.generate_standardized_value(0, 1)
-        strength_standard_deviation_bw = tools.generate_standardized_value(0, 1)
+        strength_standard_deviation_age = tools.generate_standardized_value(0, 1, 2)
+        strength_standard_deviation_bw = tools.generate_standardized_value(0, 1, 2)
         for lift in ["bench-press", "squat", "deadlift"]:
             self._setup_lifts(
                 lift, strength_standard_deviation_age, strength_standard_deviation_bw
@@ -112,8 +112,8 @@ class GymMember:
             [lift, age_section_tuple[self.gender]],
         )
 
-        applied_deviation_bw = strength_sigma_weight + random.randint(-5, 5) / 10
-        applied_deviation_age = strength_sigma_age + random.randint(-5, 5) / 10
+        applied_deviation_bw = strength_sigma_weight + random.randint(-2, 2) / 10
+        applied_deviation_age = strength_sigma_age + random.randint(-2, 2) / 10
 
         bw_value = bw_mean + applied_deviation_bw * bw_sigma
         age_value = age_mean + applied_deviation_age * age_sigma

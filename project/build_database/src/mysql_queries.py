@@ -18,8 +18,6 @@ build_query = """
     GymName VARCHAR(255) NOT NULL
     );
 
-    INSERT INTO Gym(GymName)
-    VALUES ('Karlskrona');
 
     CREATE TABLE Machine_table
     (
@@ -59,6 +57,10 @@ insert_member = """INSERT INTO Member_table(Member_Fname,Member_Lname,Date_Of_bi
 VALUES
 """
 
+insert_gym = """INSERT INTO Gym(Gymname)
+VALUES
+""" 
+
 insert_exercise_score = """INSERT INTO Exercise_score_table(Exercise, MemberID, Highscore)
 VALUES
 """
@@ -66,3 +68,5 @@ VALUES
 insert_machine = """INSERT INTO Machine_table(GymID ,Machine_name, Installment_date, Wear_tear_index)
 VALUES
 """
+
+
