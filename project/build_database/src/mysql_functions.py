@@ -11,7 +11,7 @@ CREATE FUNCTION total_num_reps()
 RETURNS INT DETERMINISTIC
 BEGIN
     DECLARE total_reps INT;
-    SELECT SUM(Total_number_of_reps) INTO total_reps FROM Machine_table;
+    SELECT SUM(Total_rep_count) INTO total_reps FROM Machine_stats_table;
     RETURN total_reps;
 END //
 

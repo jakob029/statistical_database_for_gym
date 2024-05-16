@@ -8,8 +8,15 @@
 |   |   |   |   |   |   |   |
 |   |   |   |   |   |   |   |
 
+#### Gym table
+|GymID (PK)|Gym name|
+|---|---|
+|   |   |
+|   |   |
+|   |   |
+
 #### Machine table
-|MachineID (PK)|Machine name|Installment Date|Total number of reps|Highscore|
+|MachineID (PK)|GymID (FK)|Machine name|Installment Date|Wear and tear index|
 |---|---|---|---|---|
 |   |   |   |   |   |
 |   |   |   |   |   |

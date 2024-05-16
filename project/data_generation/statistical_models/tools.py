@@ -47,14 +47,15 @@ def generate_standardized_value(mean: float, sigma: float, down_cap: float = Non
     """Generate a randomized value where the probability follows a standard deviation curve.
     Args:
         Mean: The mean of the sample.
-        Sigma: The standard deviation of the sample
-        down_cap: Minimum returnable value
+        Sigma: The standard deviation of the sample.
+        down_cap: Minimum returnable value.
     Returns:
         Random value based on standard deviation (Gaussian distribution).
     """
+    generated_value = np.random.normal(mean, sigma)
     if not down_cap:
-        return np.random.normal(mean, sigma)
-    generated_value = -10
+        return generated_value
+
     while generated_value < down_cap:
         generated_value = np.random.normal(mean, sigma)
     return generated_value

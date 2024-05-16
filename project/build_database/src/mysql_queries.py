@@ -11,13 +11,11 @@ build_query = """
     Height INT
     ) AUTO_INCREMENT = 1000;
 
-    
     CREATE TABLE Gym
     (
     GymID INT PRIMARY KEY AUTO_INCREMENT,
     GymName VARCHAR(255) NOT NULL
     );
-
 
     CREATE TABLE Machine_table
     (
@@ -48,9 +46,6 @@ build_query = """
     );
 """
 
-### THE HIGHTSCORE IN MACHINE TABLE SHOULD INSTED REFER TO A FUNCTION FROM Machine_stats_table
-### SAME WITH TOTAL NUM OF REPS
-
 using_db = """USE statistical_database_for_gym;"""
 
 insert_member = """INSERT INTO Member_table(Member_Fname,Member_Lname,Date_Of_birth,Weight,Height)
@@ -59,7 +54,7 @@ VALUES
 
 insert_gym = """INSERT INTO Gym(Gymname)
 VALUES
-""" 
+"""
 
 insert_exercise_score = """INSERT INTO Exercise_score_table(Exercise, MemberID, Highscore)
 VALUES
@@ -68,5 +63,3 @@ VALUES
 insert_machine = """INSERT INTO Machine_table(GymID ,Machine_name, Installment_date, Wear_tear_index)
 VALUES
 """
-
-
