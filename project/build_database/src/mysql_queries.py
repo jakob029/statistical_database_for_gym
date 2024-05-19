@@ -60,6 +60,6 @@ insert_exercise_score = """INSERT INTO Exercise_score_table(Exercise, MemberID, 
 VALUES
 """
 
-insert_machine = """INSERT INTO Machine_table(GymID ,Machine_name, Installment_date, Wear_tear_index)
+insert_machine = """INSERT INTO Machine_table(GymID ,Machine_name, Installment_date)
 VALUES
 """

@@ -21,6 +21,7 @@ class DataBaseHandler:
         self._initiate_database()
         self._build_database_base()
         self._insert_functions()
+        self._insert_triggers()
 
     def _initiate_database(self) -> None:
         try:
@@ -39,6 +40,7 @@ class DataBaseHandler:
         self.CURSOR.execute(query)
         self.CURSOR.close()
         print("Database created!")
+        time.sleep(0.5)
 
     def _insert_functions(self):
         self._initiate_database()
@@ -46,7 +48,14 @@ class DataBaseHandler:
         self.CURSOR.execute(q.using_db)
         self.CURSOR.execute(mysql_functions)
         self.CURSOR.close()
-    
+
+    def _insert_stored_procedures(self):
+        self._initiate_database()
+        time.sleep(0.05)
+        self.CURSOR.execute(q.using_db)
+        self.CURSOR.execute(SQL_Triggers)
+        self.CURSOR.close()
+
     def _insert_triggers(self):
         self._initiate_database()
         time.sleep(0.05)

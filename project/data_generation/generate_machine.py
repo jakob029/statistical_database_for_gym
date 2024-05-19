@@ -17,8 +17,9 @@ def get_structured_machine_output(GymID: int, gym_open_years: int = 10) -> str:
     Args:
         gym_open_years: Number of years the gym has been open.
     Returns:
-        A string following the insert structure of (Machine_name,
-          Installment_date, Total_number_of_reps, Highscore)"""
+        A string following the insert structure of
+        (GymID, Machine_name, Installment_date)
+        """
 
     m_name, ins_date = generate_machine(gym_open_years)
-    return f"{GymID}, '{m_name}', '{ins_date}', {random.randint(0,10)}"
+    return f"{GymID}, '{m_name}', '{ins_date}'"
