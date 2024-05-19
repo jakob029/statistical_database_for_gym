@@ -4,7 +4,7 @@
 
 SQL_Triggers"""
 
-CREATE TRIGGER test AFTER UPDATE ON machine_stats_table
+CREATE TRIGGER update_wear_and_tear AFTER UPDATE ON machine_stats_table
 FOR EACH ROW
     BEGIN
         update machine_table
