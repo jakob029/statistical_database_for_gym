@@ -2,8 +2,7 @@
 - Instead update wear and tear score.
 """
 
-SQL_Triggers"""
-
+SQL_Triggers = """
 CREATE TRIGGER update_wear_and_tear AFTER UPDATE ON machine_stats_table
 FOR EACH ROW
     BEGIN
