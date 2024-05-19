@@ -12,7 +12,6 @@ BEGIN
     RETURN total_reps;
 END;
 
-
 CREATE FUNCTION member_total_reps(inMemberID INT)
 RETURNS INT DETERMINISTIC
 BEGIN
@@ -27,5 +26,5 @@ BEGIN
     DECLARE machine_reps INT;
     SELECT SUM(Total_rep_count) INTO member_reps FROM Machine_stats_table where inMachineID = MachineID;
     RETURN machine_reps;
-END //
+END;
 """

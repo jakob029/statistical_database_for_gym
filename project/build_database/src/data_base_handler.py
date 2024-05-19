@@ -46,21 +46,21 @@ class DataBaseHandler:
 
     def _insert_functions(self):
         self._initiate_database()
-        time.sleep(0.05)
+        time.sleep(0.5)
         self.CURSOR.execute(q.using_db)
         self.CURSOR.execute(mysql_functions)
         self.CURSOR.close()
 
     def _insert_stored_procedures(self):
         self._initiate_database()
-        time.sleep(0.05)
+        time.sleep(0.5)
         self.CURSOR.execute(q.using_db)
         self.CURSOR.execute(mysql_stored_procedures)
         self.CURSOR.close()
 
     def _insert_triggers(self):
         self._initiate_database()
-        time.sleep(0.05)
+        time.sleep(0.5)
         self.CURSOR.execute(q.using_db)
         self.CURSOR.execute(mysql_triggers)
         self.CURSOR.close()
