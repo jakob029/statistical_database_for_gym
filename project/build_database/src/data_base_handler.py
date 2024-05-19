@@ -5,7 +5,8 @@ from mysql.connector import connect, Error
 import getpass
 import build_database.src.mysql_queries as q
 from build_database.src.mysql_functions import mysql_functions
-from build_database.src.mysql_triggers import SQL_Triggers
+from build_database.src.mysql_triggers import mysql_triggers
+from build_database.src.mysql_stored_procedures import mysql_stored_procedures
 
 class DataBaseHandler:
 
@@ -22,6 +23,7 @@ class DataBaseHandler:
         self._build_database_base()
         self._insert_functions()
         self._insert_triggers()
+        self._insert_stored_procedures()
 
     def _initiate_database(self) -> None:
         try:
@@ -53,14 +55,14 @@ class DataBaseHandler:
         self._initiate_database()
         time.sleep(0.05)
         self.CURSOR.execute(q.using_db)
-        self.CURSOR.execute(SQL_Triggers)
+        self.CURSOR.execute(mysql_stored_procedures)
         self.CURSOR.close()
 
     def _insert_triggers(self):
         self._initiate_database()
         time.sleep(0.05)
         self.CURSOR.execute(q.using_db)
-        self.CURSOR.execute(SQL_Triggers)
+        self.CURSOR.execute(mysql_triggers)
         self.CURSOR.close()
 
     def insert_user_generated_data(
