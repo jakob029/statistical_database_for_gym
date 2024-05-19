@@ -13,16 +13,16 @@ class DataBaseHandler:
     DATABASE_CONNECTION: mysql.connector.connection_cext.CMySQLConnection
     CURSOR: mysql.connector.cursor_cext.CMySQLCursor
 
-    def __init__(self) -> None:
+    def __init__(self, host: str = "localhost") -> None:
         self.USERNAME = input("Enter username: ")
         self.PASSWORD = getpass.getpass("Password: ")
-        self._initiate_database()
+        self._initiate_database(host)
         self._build_database_base()
 
-    def _initiate_database(self) -> None:
+    def _initiate_database(self, host: str) -> None:
         try:
             self.DATABASE_CONNECTION = connect(
-                host="jefd2024.mysql.database.azure.com",
+                host=host,
                 user=self.USERNAME,
                 password=self.PASSWORD,
             )
