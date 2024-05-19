@@ -4,7 +4,8 @@ from typing import Callable
 from mysql.connector import connect, Error
 import getpass
 import build_database.src.mysql_queries as q
-
+from build_database.src.mysql_functions import mysql_functions
+from build_database.src.mysql_triggers import SQL_Triggers
 
 class DataBaseHandler:
 
@@ -19,6 +20,7 @@ class DataBaseHandler:
         self.PASSWORD = getpass.getpass("Password: ")
         self._initiate_database()
         self._build_database_base()
+        self._insert_functions()
 
     def _initiate_database(self) -> None:
         try:
@@ -37,6 +39,20 @@ class DataBaseHandler:
         self.CURSOR.execute(query)
         self.CURSOR.close()
         print("Database created!")
+
+    def _insert_functions(self):
+        self._initiate_database()
+        time.sleep(0.05)
+        self.CURSOR.execute(q.using_db)
+        self.CURSOR.execute(mysql_functions)
+        self.CURSOR.close()
+    
+    def _insert_triggers(self):
+        self._initiate_database()
+        time.sleep(0.05)
+        self.CURSOR.execute(q.using_db)
+        self.CURSOR.execute(SQL_Triggers)
+        self.CURSOR.close()
 
     def insert_user_generated_data(
         self, member_generator: Callable[..., str], num_of_members: int
