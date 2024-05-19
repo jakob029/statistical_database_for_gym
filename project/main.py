@@ -3,7 +3,7 @@ assignment all code is developed by jakob029 & FilipDar."""
 from build_database.src.data_base_handler import DataBaseHandler
 from data_generation import generate_member, generate_machine
 
-HOST = "localhost"
+HOST = "jefd2024.mysql.database.azure.com"
 
 
 def run():
