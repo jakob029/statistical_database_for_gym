@@ -32,7 +32,7 @@ build_query = """
     Exercise VARCHAR(255) NOT NULL,
     MemberID INT NOT NULL,
     foreign key (MemberID) references Member_table(MemberID),
-    Highscore INT
+    High_score INT
     );
 
     CREATE TABLE Machine_stats_table
@@ -42,7 +42,7 @@ build_query = """
     MemberID INT NOT NULL,
     foreign key (MemberID) references Member_table(MemberID),
     Total_rep_count INT,
-    Highscore INT
+    High_score INT
     );
 """
 
@@ -52,11 +52,11 @@ insert_member = """INSERT INTO Member_table(Member_Fname,Member_Lname,Date_Of_bi
 VALUES
 """
 
-insert_gym = """INSERT INTO Gym(Gymname)
+insert_gym = """INSERT INTO Gym(GymName)
 VALUES
 """
 
-insert_exercise_score = """INSERT INTO Exercise_score_table(Exercise, MemberID, Highscore)
+insert_exercise_score = """INSERT INTO Exercise_score_table(Exercise, MemberID, High_score)
 VALUES
 """
 
