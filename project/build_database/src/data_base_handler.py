@@ -15,10 +15,14 @@ class DataBaseHandler:
     DATABASE_CONNECTION: mysql.connector.connection_cext.CMySQLConnection
     CURSOR: mysql.connector.cursor_cext.CMySQLCursor
     HOST: str
+
     def __init__(self, host: str = "localhost") -> None:
         self.HOST = host
         self.USERNAME = input("Enter username: ")
         self.PASSWORD = getpass.getpass("Password: ")
+
+    
+    def build_database(self):
         self._initiate_database()
         self._build_database_base()
         self._insert_functions()
@@ -108,6 +112,63 @@ class DataBaseHandler:
             self.CURSOR.execute(q.using_db)
             self.CURSOR.execute(f"{q.insert_gym}('{location}'); COMMIT;")
             self.CURSOR.close()
+
+    def database_exists(self) -> bool:
+        self._initiate_database()
+        self.CURSOR.execute("Show databases;")
+        return ('statistical_database_for_gym',) in self.CURSOR.fetchall()
+
+    def execute_function(self, g_info):
+        self._initiate_database()
+        self.CURSOR.execute(q.using_db)
+        query = f"select {g_info[1]}("
+        if g_info[2:]:
+            try:
+                int(g_info[2])
+                query += g_info[2]
+            except ValueError:
+                query += f"'{g_info[2]}'"
+
+            if len(g_info) > 3:
+                for m_args in g_info[3:]:
+                    try:
+                        int(m_args)
+                        query += f", {m_args}"
+                    except ValueError:
+                        query += f", '{m_args}'"
+
+        query += ");"
+        print(f'Ran: {query}\n')
+        self.CURSOR.execute(query)
+
+        print(self.CURSOR.fetchall()[0])
+        input("Press any key to Continue")
+
+    def execute_procedure(self, g_info):
+        self._initiate_database()
+        self.CURSOR.execute(q.using_db)
+        query = f"call {g_info[1]}("
+        if g_info[2:]:
+            try:
+                int(g_info[2])
+                query += g_info[2]
+            except ValueError:
+                query += f"'{g_info[2]}'"
+
+            if len(g_info) > 3:
+                for m_args in g_info[3:]:
+                    try:
+                        int(m_args)
+                        query += f", {m_args}"
+                    except ValueError:
+                        query += f", '{m_args}'"
+
+        query += "); commit;"
+        print(f'Ran: {query}\n')
+        self.CURSOR.execute(query)
+
+        print(self.CURSOR.fetchall())
+        input("Press any key to Continue")
 
     @staticmethod
     def _get_build_query() -> str:

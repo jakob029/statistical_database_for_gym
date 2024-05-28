@@ -52,12 +52,12 @@ BEGIN
     DECLARE result VARCHAR(255);
     SELECT CONCAT('Name: ', m.Member_Fname, ' ', m.Member_Lname,
                   ', Exercise: ', e.Exercise,
-                  ', Highscore: ', MAX(e.Highscore)) INTO result
+                  ', High_score: ', MAX(e.High_score)) INTO result
     FROM Exercise_score_table e
     JOIN Member_table m ON e.MemberID = m.MemberID
     WHERE e.Exercise = Exercise
     GROUP BY m.Member_Fname, m.Member_Lname, e.Exercise
-    ORDER BY MAX(e.Highscore) DESC
+    ORDER BY MAX(e.High_score) DESC
     LIMIT 1;
 
     RETURN result;
